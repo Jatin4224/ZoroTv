@@ -4,18 +4,20 @@ import { TbChartBarPopular } from "react-icons/tb";
 import { GoPeople } from "react-icons/go";
 import { MdOutlineLiveTv } from "react-icons/md";
 import type { JSX } from "react/jsx-runtime";
+import { Link } from "react-router-dom";
 
-type sidebarItem = {
+type SidebarItem = {
   icon: JSX.Element;
   name: string;
+  href: string;
 };
 const Sidebar = () => {
-  const data: sidebarItem[] = [
-    { icon: <FaFire />, name: "Trending" },
-    { icon: <TbChartBarPopular />, name: "Popular" },
-    { icon: <MdOutlineLocalMovies />, name: "Movies" },
-    { icon: <MdOutlineLiveTv />, name: "Tv Shows" },
-    { icon: <GoPeople />, name: "People" },
+  const data: SidebarItem[] = [
+    { href: "/trending", icon: <FaFire />, name: "Trending" },
+    { href: "/popular", icon: <TbChartBarPopular />, name: "Popular" },
+    { href: "/movies", icon: <MdOutlineLocalMovies />, name: "Movies" },
+    { href: "/tvshows", icon: <MdOutlineLiveTv />, name: "Tv Shows" },
+    { href: "/people", icon: <GoPeople />, name: "People" },
   ];
 
   return (
@@ -31,13 +33,12 @@ const Sidebar = () => {
           New Feeds
         </h1>
         {data.map((item, index) => (
-          <div
-            className="flex flex-shrink items-center gap-4 ml-20 text-white hover:bg-lime-500 h-10 hover:text-green-100 hover:text-2xl hover:cursor-pointer transition-all duration-300 ease-in-out w-60 rounded-md p-4 whitespace-nowrap text-base"
-            key={index}
-          >
-            <span>{item.icon}</span>
-            <span>{item.name}</span>
-          </div>
+          <Link to={item.href} key={index}>
+            <div className="flex flex-shrink items-center gap-4 ml-20 text-white hover:bg-lime-500 h-10 hover:text-green-100 hover:text-2xl hover:cursor-pointer transition-all duration-300 ease-in-out w-60 rounded-md p-4 whitespace-nowrap text-base">
+              <span>{item.icon}</span>
+              <span>{item.name}</span>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

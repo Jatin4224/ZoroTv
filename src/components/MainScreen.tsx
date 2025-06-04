@@ -3,7 +3,7 @@ const MainScreen = () => {
   return (
     <div>
       <div className="h-20 p-4 flex justify-center items-center gap-4">
-        <div className="p-4 flex items-center ">
+        <div className="p-4 flex items-center">
           <RiSearchLine className="h-6 w-6 text-zinc-400 " />
         </div>
         <input

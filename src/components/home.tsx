@@ -7,7 +7,7 @@ const Home = () => {
       <div className="bg-[#1FE24] w-[25%] h-screen border-r border-zinc-100">
         <Sidebar />
       </div>
-      <div className="bg-[#1FE24] w-[75%] h-screen border-r">
+      <div className="bg-[#1FE24] w-[75%] h-screen ">
         <MainScreen />
       </div>
     </div>
