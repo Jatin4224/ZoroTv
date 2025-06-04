@@ -28,7 +28,7 @@ const Sidebar = () => {
           className="h-15 w-40 "
         />
       </div>
-      <div className="h-140 w-full flex flex-col gap-10 border-b border-zinc-100">
+      <div className="h-110 w-full flex flex-col gap-8 border-b border-zinc-100">
         <h1 className="text-zinc-100 h-10 p-4 text-2xl font-bold ml-2">
           New Feeds
         </h1>
