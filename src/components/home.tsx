@@ -25,6 +25,11 @@ const Home = () => {
     !wallpaper && GetHeaderWallpaper();
   }, []);
 
+  if (!wallpaper) {
+    return (
+      <h1 className="text-5xl font-bold text-white">Loading wallpaper...</h1>
+    );
+  }
   return (
     <>
       <div className="flex h-180  bg-[url('https://4kwallpapers.com/images/wallpapers/roronoa-zoro-one-1920x1080-10523.png')] bg-cover  relative ">

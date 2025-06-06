@@ -61,7 +61,7 @@ const MainScreen = () => {
         {searches.map((items, index) => (
           <Link
             to="/"
-            className="bg-transparent text-green-100 w-[52%] ml-32 -translate-y-4 h-15 hover:scale-110 transform transition-all ease-in-out duration-300 relative rounded-lg shadow-[0_4px_20px_rgba(0,255,0,0.6)] items-center flex justify-start p-2 font-semibold gap-10"
+            className="bg-transparent text-green-100 w-[52%] ml-32 -translate-y-4 h-15 hover:scale-110 transform transition-all ease-in-out duration-300 relative rounded-lg shadow-[0_4px_20px_rgba(0,255,0,0.6)] items-center flex justify-start p-2 font-semibold gap-10 absolute"
             key={index}
           >
             <img

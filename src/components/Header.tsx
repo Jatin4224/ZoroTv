@@ -12,10 +12,12 @@ const Header = ({ wallpaper }: wallpaperProp) => {
         backgroundSize: "cover",
         backgroundPosition: "center ",
       }}
-      className="text-white bg-transparent shadow-[0_4px_20px_rgba(0,255,0,0.6)] h-[50vh] w-[70vw] -translate-y-40 translate-x-10 opacity-80 
-             transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_4px_30px_rgba(0,255,0,0.8)] cursor-pointer rounded-xl"
+      className="text-white bg-transparent shadow-[0_4px_20px_rgba(0,255,0,0.6)] h-[50vh] w-[70vw] -translate-y-40 translate-x-10 opacity-60 hover:opacity-100
+             transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_4px_30px_rgba(0,255,0,0.8)] cursor-pointer rounded-xl flex flex-col justify-end relative"
     >
-      Header
+      <h1 className="text-5xl  text-white font-black">
+        {wallpaper.title || wallpaper.original_title || wallpaper.original_name}
+      </h1>
     </div>
   );
 };
