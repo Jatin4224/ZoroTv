@@ -34,7 +34,7 @@ const Sidebar = () => {
         </h1>
         {data.map((item, index) => (
           <Link to={item.href} key={index}>
-            <div className="flex flex-shrink items-center gap-4 ml-20 text-white hover:bg-lime-500 h-10 hover:text-green-100 hover:text-2xl hover:cursor-pointer transition-all duration-300 ease-in-out w-60 rounded-md p-4 whitespace-nowrap text-base">
+            <div className="flex flex-shrink items-center gap-4 ml-20 text-white hover:shadow-[0_4px_20px_rgba(0,255,0,0.6)] h-10 hover:text-green-100 hover:text-2xl hover:cursor-pointer transition-all duration-300 ease-in-out w-60 rounded-md p-4 whitespace-nowrap text-base">
               <span>{item.icon}</span>
               <span>{item.name}</span>
             </div>
