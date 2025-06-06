@@ -1,5 +1,5 @@
 import MainScreen from "./MainScreen";
-import Sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 
 const Home = () => {
   return (
