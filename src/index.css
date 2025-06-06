@@ -14,3 +14,18 @@
   background: rgb(211, 87, 211);
   border-radius: 10px;
 }
+@keyframes floatUp {
+  0% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.4);
+  }
+}
+
+.float-up {
+  animation: floatUp 5s ease-in-out infinite;
+}
