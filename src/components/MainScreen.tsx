@@ -2,19 +2,24 @@ import axios from "../utils/axios";
 import { useEffect, useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 interface SearchType {
   results: string[];
 }
 const MainScreen = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [searches, setSearches] = useState<string[]>([]);
-  const [onHover, setOnHover] = useState(false);
+  const [onHover, setOnHover] = useState<boolean>(false);
 
   const getSearches = async () => {
-    const searchData = await axios.get<SearchType>(
-      `/search/multi?query=${searchQuery}`
-    );
-    setSearches(searchData.data.results);
+    try {
+      const searchData = await axios.get<SearchType>(
+        `/search/multi?query=${searchQuery}`
+      );
+      setSearches(searchData.data.results);
+    } catch (error) {
+      console.log("failed to fetch getSearches ", error);
+    }
   };
 
   useEffect(() => {
@@ -52,20 +57,24 @@ const MainScreen = () => {
         </div>
       </div>
       <div className="flex flex-col gap-1 overflow-y-auto h-40">
-        <div className="bg-transparent text-green-100 w-[52%] ml-32 -translate-y-4 h-15 hover:scale-110 transform transition-all ease-in-out duration-300 relative rounded-lg shadow-[0_4px_20px_rgba(0,255,0,0.6)] items-center flex justify-start p-2 font-semibold gap-10">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnRRHNnx679VnF5uDEFu9_Ns1WFnouyu9zYA&s"
-            className="h-full w-15 rounded-lg"
-          />
-          <h1>hello everyone</h1>
-        </div>
-        <div className="bg-transparent text-green-100 w-[52%] ml-32 -translate-y-4 h-15 hover:scale-110 transform transition-all ease-in-out duration-300 relative rounded-lg shadow-[0_4px_20px_rgba(0,255,0,0.6)] items-center flex justify-start p-2 font-semibold gap-10">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnRRHNnx679VnF5uDEFu9_Ns1WFnouyu9zYA&s"
-            className="h-full w-15 rounded-lg border-green-800 border-2 "
-          />
-          <h1>hello everyone</h1>
-        </div>
+        {searches.map((items, index) => (
+          <Link
+            to="/"
+            className="bg-transparent text-green-100 w-[52%] ml-32 -translate-y-4 h-15 hover:scale-110 transform transition-all ease-in-out duration-300 relative rounded-lg shadow-[0_4px_20px_rgba(0,255,0,0.6)] items-center flex justify-start p-2 font-semibold gap-10"
+            key={index}
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/original/${items.backdrop_path}`}
+              className="h-full w-15 rounded-lg"
+            />
+            <h1>
+              {items.name ||
+                items.title ||
+                items.original_name ||
+                items.original_title}
+            </h1>
+          </Link>
+        ))}
       </div>
     </div>
   );
