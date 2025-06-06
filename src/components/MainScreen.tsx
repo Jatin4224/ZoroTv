@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import zoro from "../assets/zoro.png";
 interface SearchType {
   results: string[];
 }
@@ -64,8 +65,14 @@ const MainScreen = () => {
             key={index}
           >
             <img
-              src={`https://image.tmdb.org/t/p/original/${items.backdrop_path}`}
-              className="h-full w-15 rounded-lg"
+              src={
+                items.backdrop_path || items.profile_path
+                  ? `https://image.tmdb.org/t/p/original/${
+                      items.backdrop_path || items.profile_path
+                    }`
+                  : zoro
+              }
+              className="h-full w-15 rounded-lg shadow-lg"
             />
             <h1>
               {items.name ||
