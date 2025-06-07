@@ -25,7 +25,7 @@ const HorizontalCards = ({ trendingData }) => {
           <motion.div
             key={index}
             whileHover={{ scale: 1.05 }}
-            className="flex-shrink-0 w-40 h-60 bg-black shadow-[0_4px_20px_rgba(0,255,0,0.6)] rounded-lg p-2 text-white cursor-pointer opacity-80 hover:opacity-100"
+            className="flex-shrink-0 w-40 h-60 bg-black shadow-[0_4px_12px_rgba(0,255,0,0.6)] rounded-lg p-2 text-white cursor-pointer opacity-80 hover:opacity-100"
           >
             <img
               src={`https://image.tmdb.org/t/p/w300/${
