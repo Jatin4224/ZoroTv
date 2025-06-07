@@ -5,7 +5,7 @@ import { GoPeople } from "react-icons/go";
 import { MdOutlineLiveTv } from "react-icons/md";
 import type { JSX } from "react/jsx-runtime";
 import { Link } from "react-router-dom";
-
+import zorotv from "../assets/zorotv.png";
 type SidebarItem = {
   icon: JSX.Element;
   name: string;
@@ -23,10 +23,7 @@ const Sidebar = () => {
   return (
     <div>
       <div className="flex justify-start items-center gap-4 h-20 p-12 ml-10">
-        <img
-          src="https://zorotv.com.in/wp-content/uploads/2024/03/zorotv.png"
-          className="h-15 w-40 "
-        />
+        <img src={zorotv} className="h-15 w-40 " />
       </div>
       <div className="h-110 w-full flex flex-col gap-8 border-b border-zinc-100">
         <h1 className="text-zinc-100 h-10 p-4 text-2xl font-bold ml-2">

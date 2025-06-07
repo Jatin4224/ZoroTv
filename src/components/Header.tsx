@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import anime from "../assets/anime.png";
 interface wallpaperProp {
   wallpaper: string;
 }
@@ -15,9 +17,17 @@ const Header = ({ wallpaper }: wallpaperProp) => {
       className="text-white bg-transparent shadow-[0_4px_20px_rgba(0,255,0,0.6)] h-[50vh] w-[70vw] -translate-y-40 translate-x-10 opacity-60 hover:opacity-100
              transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_4px_30px_rgba(0,255,0,0.8)] cursor-pointer rounded-xl flex flex-col justify-end relative"
     >
-      <h1 className="text-5xl  text-white font-black">
+      <h1 className="text-5xl  text-white font-black p-[4%] w-[70%]">
         {wallpaper.title || wallpaper.original_title || wallpaper.original_name}
       </h1>
+      <p className="w-[70%]  text-white p-[4%]">
+        {wallpaper.overview.slice(0, 200)}...
+        <Link className="text-green-400">more</Link>
+      </p>
+      <p className="flex flex-row text-white p-2 items-center justify-start translate-x-8">
+        <img src={anime} className="w-10 h-10 rounded-lg  p-1 mr-4" />
+        {wallpaper.media_type}
+      </p>
     </div>
   );
 };
