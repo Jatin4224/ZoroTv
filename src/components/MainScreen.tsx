@@ -26,7 +26,7 @@ const MainScreen = () => {
   useEffect(() => {
     getSearches();
   }, [searchQuery]);
-  console.log(searches);
+
   return (
     <div>
       <div className="h-20 p-4 flex justify-start items-center gap-4 relative ">

@@ -3,9 +3,11 @@ import MainScreen from "./MainScreen";
 import Sidebar from "./Sidebar";
 import axios from "../utils/axios";
 import Header from "./Header";
+import HorizontalCards from "./HorizontalCards";
 
 const Home = () => {
   const [wallpaper, setWallpaper] = useState(null);
+  const [trending, setTrending] = useState(null);
 
   const GetHeaderWallpaper = async () => {
     try {
@@ -21,14 +23,24 @@ const Home = () => {
     }
   };
 
+  const GetTrending = async () => {
+    try {
+      const trendingData = await axios.get(`/trending/all/day`);
+
+      setTrending(trendingData.data.results);
+    } catch (error) {
+      console.log("fetching GetHeaderWallpaper data failed", error);
+    }
+  };
+
   useEffect(() => {
     !wallpaper && GetHeaderWallpaper();
+    !trending && GetTrending();
   }, []);
 
-  if (!wallpaper) {
-    return (
-      <h1 className="text-5xl font-bold text-white">Loading wallpaper...</h1>
-    );
+  console.log(trending);
+  if (!wallpaper && !trending) {
+    return <h1 className="text-5xl font-bold text-white">Loading...</h1>;
   }
   return (
     <>
@@ -36,9 +48,10 @@ const Home = () => {
         <div className="bg-[#1FE24] w-[25%] h-screen border-r border-zinc-100">
           <Sidebar />
         </div>
-        <div className="bg-[#1FE24] w-[75%] h-screen ">
+        <div className="bg-[#1FE24] w-[75%] h-screen overflow-auto overflow-x-hidden">
           <MainScreen />
           <Header wallpaper={wallpaper} />
+          <HorizontalCards trendingData={trending} />
         </div>
       </div>
     </>
