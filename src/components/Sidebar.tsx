@@ -2,6 +2,7 @@ import { FaFire } from "react-icons/fa6";
 import { MdOutlineLocalMovies } from "react-icons/md";
 import { TbChartBarPopular } from "react-icons/tb";
 import { GoPeople } from "react-icons/go";
+import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineLiveTv } from "react-icons/md";
 import type { JSX } from "react/jsx-runtime";
 import { Link } from "react-router-dom";
@@ -37,6 +38,17 @@ const Sidebar = () => {
             </div>
           </Link>
         ))}
+        <div>
+          <h1 className="text-zinc-100 h-10 p-4 text-2xl font-bold ml-1 mt-2">
+            Website Information
+          </h1>
+          <div className="flex flex-col flex-shrink text-white p-10 ml-12 gap-6">
+            <div className="flex gap-4 items-center">
+              <IoCallOutline />
+              <span>Contact Us</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
