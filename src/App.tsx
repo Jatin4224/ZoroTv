@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
 import Loading from "./components/Loading";
+import Trending from "./components/Trending";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/loading" element={<Loading />} />
+          <Route path="/trending" element={<Trending />} />
         </Routes>
       </div>
     </div>
