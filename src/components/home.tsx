@@ -5,6 +5,7 @@ import axios from "../utils/axios";
 import Header from "./Header";
 import HorizontalCards from "./HorizontalCards";
 
+import Loading from "./Loading";
 const Home = () => {
   const [wallpaper, setWallpaper] = useState(null);
   const [trending, setTrending] = useState(null);
@@ -38,9 +39,8 @@ const Home = () => {
     !trending && GetTrending();
   }, []);
 
-  console.log(trending);
   if (!wallpaper && !trending) {
-    return <h1 className="text-5xl font-bold text-white">Loading...</h1>;
+    return <Loading />;
   }
   return (
     <>
