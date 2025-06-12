@@ -74,6 +74,9 @@ const Trending = () => {
           title={title[0]}
           options={categories}
           func={(value) => setCategory(value)}
+          shadow="shadow-[0_4px_20px_rgba(0,255,0,0.6)]"
+          borderColor="border-green-600"
+          color="text-green-100"
         />
 
         <Dropdown

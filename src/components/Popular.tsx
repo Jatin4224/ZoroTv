@@ -50,7 +50,7 @@ const Popular = () => {
   }
 
   return (
-    <div className="w-screen h-screen p-[2%] bg-[url('./assets/zoro5.png')] bg-center bg-cover overflow-hidden overflow-y-auto">
+    <div className="w-screen h-screen p-[2%] bg-[url('./assets/popular.jpg')] bg-center bg-cover overflow-hidden overflow-y-auto">
       <div className="w-full h-[10vh] flex flex-row items-center gap-6">
         <FaArrowLeft
           onClick={() => navigate(-1)}
@@ -65,9 +65,9 @@ const Popular = () => {
           title={title[0]}
           options={categories}
           func={(value) => setCategory(value)}
-          shadow="shadow-[0_0_20px_#ff0000]"
-          borderColor="border-red-600"
-          color="text-red-100"
+          shadow="shadow-[0_0_20px_#FFD700]"
+          borderColor="border-yellow-600"
+          color="text-yellow-100"
         />
       </div>
 
@@ -80,8 +80,8 @@ const Popular = () => {
         <Cards
           data={popular}
           title={category}
-          shadow="shadow-[0_0_20px_#ff0000]"
-          color="bg-red-600"
+          shadow="shadow-[0_0_20px_#FFD700]"
+          color="bg-yellow-500"
         />
       </InfiniteScroll>
     </div>
