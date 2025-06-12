@@ -18,7 +18,7 @@ const Trending = () => {
   const [duration, setDuration] = useState("day");
   const [trending, setTrending] = useState(null);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+
   const GetTrending = async () => {
     try {
       const trendingData = await axios.get(
@@ -26,10 +26,8 @@ const Trending = () => {
       );
       const newResults = trendingData.data.results;
 
-      setTrending(trendingData.data.results);
-      if (res.data.results.length === 0) {
-        setHasMore(false);
-      }
+      // setTrending(trendingData.data.results);
+
       setTrending((prev) =>
         page === 1 ? newResults : [...prev, ...newResults]
       );
