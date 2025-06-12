@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+
 interface optionProps {
   options: string[];
   title: string;
+  func: (value: string) => void;
 }
-const Dropdown = ({ title, options }: optionProps) => {
+
+const Dropdown = ({ title, options, func }: optionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(title);
 
@@ -11,7 +14,7 @@ const Dropdown = ({ title, options }: optionProps) => {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex justify-between w-48 px-4 py-2 text-sm font-medium bg-transparent text-green-100 border border-green-300 rounded-lg  shadow-[0_4px_12px_rgba(0,255,0,0.6)]"
+        className="inline-flex justify-between w-48 px-4 py-2 text-sm font-medium bg-transparent text-green-100 border border-green-300 rounded-lg shadow-[0_4px_12px_rgba(0,255,0,0.6)]"
       >
         {selected}
         <svg
@@ -35,6 +38,7 @@ const Dropdown = ({ title, options }: optionProps) => {
               key={index}
               onClick={() => {
                 setSelected(option);
+                func(option); // notify parent
                 setIsOpen(false);
               }}
               className="px-4 py-2 text-sm text-green-100 hover:text-green-600 font-semibold cursor-pointer"

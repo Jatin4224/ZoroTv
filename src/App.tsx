@@ -3,6 +3,7 @@ import "./index.css";
 import Home from "./components/Home";
 import Loading from "./components/Loading";
 import Trending from "./components/Trending";
+import Popular from "./components/Popular";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/trending" element={<Trending />} />
+          <Route path="/popular" element={<Popular />} />
         </Routes>
       </div>
     </div>

@@ -28,8 +28,8 @@ const Trending = () => {
 
       // setTrending(trendingData.data.results);
 
-      setTrending((prev) =>
-        page === 1 ? newResults : [...prev, ...newResults]
+      setTrending((prevState) =>
+        page === 1 ? newResults : [...prevState, ...newResults]
       );
     } catch (error) {
       console.log("fetching GetHeaderWallpaper data failed", error);
@@ -60,7 +60,7 @@ const Trending = () => {
         <div className=" w-[180vh] mt-42 ">
           <MainScreen />
         </div>
-        <Dropdown
+        {/* <Dropdown
           title={title[0]}
           options={categories}
           func={(e) => setCategory(e.target.value)}
@@ -69,12 +69,23 @@ const Trending = () => {
           title={title[1]}
           options={durations}
           func={(e) => setDuration(e.target.value)}
+        /> */}
+        <Dropdown
+          title={title[0]}
+          options={categories}
+          func={(value) => setCategory(value)} // <-- parent state changes
+        />
+
+        <Dropdown
+          title={title[1]}
+          options={durations}
+          func={(value) => setDuration(value)} // <-- triggers API call
         />
       </div>
       <InfiniteScroll
         dataLength={trending.length}
         next={() => setPage((prev) => prev + 1)}
-        hasMore={hasMore}
+        hasMore={true}
         loader={<Loading />}
       >
         <Cards data={trending} title={category} />
