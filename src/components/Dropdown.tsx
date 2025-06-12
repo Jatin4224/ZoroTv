@@ -4,9 +4,19 @@ interface optionProps {
   options: string[];
   title: string;
   func: (value: string) => void;
+  shadow: string;
+  color: string;
+  borderColor: string;
 }
 
-const Dropdown = ({ title, options, func }: optionProps) => {
+const Dropdown = ({
+  title,
+  options,
+  func,
+  shadow,
+  color,
+  borderColor,
+}: optionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(title);
 
@@ -14,7 +24,7 @@ const Dropdown = ({ title, options, func }: optionProps) => {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex justify-between w-48 px-4 py-2 text-sm font-medium bg-transparent text-green-100 border border-green-300 rounded-lg shadow-[0_4px_12px_rgba(0,255,0,0.6)]"
+        className={`inline-flex justify-between w-48 px-4 py-2 text-sm font-medium bg-transparent ${color} border ${borderColor} rounded-lg ${shadow}`}
       >
         {selected}
         <svg
@@ -32,7 +42,9 @@ const Dropdown = ({ title, options, func }: optionProps) => {
       </button>
 
       {isOpen && (
-        <ul className="absolute z-10 w-48 mt-2 bg-transparent border border-green-600 divide-y divide-green-600 rounded-lg shadow-lg">
+        <ul
+          className={`absolute z-10 w-48 mt-2 bg-transparent border border-${color}  divide-y divide-${color} rounded-lg shadow-lg`}
+        >
           {options.map((option, index) => (
             <li
               key={index}
@@ -41,7 +53,7 @@ const Dropdown = ({ title, options, func }: optionProps) => {
                 func(option); // notify parent
                 setIsOpen(false);
               }}
-              className="px-4 py-2 text-sm text-green-100 hover:text-green-600 font-semibold cursor-pointer"
+              className={`px-4 py-2 text-sm text-green-100 hover:text-${color} font-semibold cursor-pointer`}
             >
               {option}
             </li>

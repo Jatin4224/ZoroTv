@@ -73,13 +73,16 @@ const Trending = () => {
         <Dropdown
           title={title[0]}
           options={categories}
-          func={(value) => setCategory(value)} // <-- parent state changes
+          func={(value) => setCategory(value)}
         />
 
         <Dropdown
           title={title[1]}
           options={durations}
-          func={(value) => setDuration(value)} // <-- triggers API call
+          func={(value) => setDuration(value)}
+          shadow="shadow-[0_4px_20px_rgba(0,255,0,0.6)]"
+          borderColor="border-green-600"
+          color="text-green-100"
         />
       </div>
       <InfiniteScroll
@@ -88,7 +91,12 @@ const Trending = () => {
         hasMore={true}
         loader={<Loading />}
       >
-        <Cards data={trending} title={category} />
+        <Cards
+          data={trending}
+          title={category}
+          shadow="shadow-[0_0_15px_#00ff00]"
+          color="bg-green-600"
+        />
       </InfiniteScroll>
     </div>
   );
