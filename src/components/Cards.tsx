@@ -5,9 +5,10 @@ interface CardProps {
   title: string;
   shadow: string;
   color: string;
+  media_type: string;
 }
 
-const Cards = ({ data, title, shadow, color }: CardProps) => {
+const Cards = ({ data, title, shadow, color, media_type }: CardProps) => {
   return (
     <div className="px-4">
       <h2 className="text-white text-1xl mb-4 opacity-40">
@@ -17,7 +18,8 @@ const Cards = ({ data, title, shadow, color }: CardProps) => {
         {data.map((c, i) => (
           <Link
             key={i}
-            to={`/details/${c.id}`}
+            // to={`/details/${c.id}`}
+            to={`/${c.media_type || title}/details/${c.id}`}
             className="bg-black  rounded-xl p-2 shadow-lg hover:scale-105 transition-transform duration-200"
           >
             <div

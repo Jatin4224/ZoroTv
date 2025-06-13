@@ -82,6 +82,7 @@ const Popular = () => {
           title={category}
           shadow="shadow-[0_0_20px_#FFD700]"
           color="bg-yellow-500"
+          media_type={popular.media_type}
         />
       </InfiniteScroll>
     </div>

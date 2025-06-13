@@ -35,7 +35,6 @@ const Trending = () => {
       console.log("fetching GetHeaderWallpaper data failed", error);
     }
   };
-  console.log(trending);
 
   useEffect(() => {
     setPage(1);
@@ -97,6 +96,7 @@ const Trending = () => {
         <Cards
           data={trending}
           title={category}
+          media_type={trending.media_type}
           shadow="shadow-[0_0_15px_#00ff00]"
           color="bg-green-600"
         />
