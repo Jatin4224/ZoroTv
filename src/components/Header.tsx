@@ -74,7 +74,10 @@ const Header = ({ wallpaper }: WallpaperProp) => {
       {wallpaper.overview && (
         <p className="w-[70%] text-white p-[4%]">
           {wallpaper.overview.slice(0, 200)}...
-          <Link to="#" className="text-green-400">
+          <Link
+            to={`/${wallpaper.media_type}/details/${wallpaper.id}`}
+            className="text-green-400"
+          >
             more
           </Link>
         </p>
